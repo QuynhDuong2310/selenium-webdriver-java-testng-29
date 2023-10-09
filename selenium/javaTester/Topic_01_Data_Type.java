@@ -1,9 +1,13 @@
 package javaTester;
 
+import org.openqa.selenium.By;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Topic_01_Data_Type {
+    // By cũng lalaf một kiểu dữ liệu
+    By by;
     //Data type:
     // Kiểu nguyên thủy (Primitive type)
     // Số nguyên: byte - short - int - long

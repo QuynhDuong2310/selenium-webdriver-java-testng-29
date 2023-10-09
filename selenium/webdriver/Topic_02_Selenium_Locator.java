@@ -35,14 +35,6 @@ public class Topic_02_Selenium_Locator {
 
 
     }
-// TestNG : Order the test case to run (0-9, a-z)
-// Driver: Variable
-// Selenium locator by:
-// Class By, 8 loai locator >> nằm trong class By
-// C: Class
-// f: Biến final
-// m: Method
-// Trong folder
     @Test
     public void TC_01_ID_Locator() {
         driver.findElement(By.id("FirstName"));
@@ -105,8 +97,6 @@ public class Topic_02_Selenium_Locator {
         //Xpath vs partial link
         driver.findElement(By.xpath("//a[contains(@href,'/customer/addresses')]"));
         driver.findElement(By.xpath("//a[contains(text(),'Addresses')]"));
-
-
     }
 
     @AfterClass
