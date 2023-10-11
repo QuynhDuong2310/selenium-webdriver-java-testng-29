@@ -107,7 +107,50 @@ public class Topic_07_WebElement_Commands_2_Exercise {
     @Test
     public void TC_04_MailChimp() {
         driver.get("https://login.mailchimp.com/signup/");
+        WebElement passwordTextBox = driver.findElement(By.id("new_password"));
+        passwordTextBox.click();
+        passwordTextBox.sendKeys("123");
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li[class='8-char not-completed']")).isDisplayed());
 
+        sleepInSecond(2);
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("abc");
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li[class='8-char not-completed']")).isDisplayed());
+
+        sleepInSecond(2);
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("ABC");
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li[class='8-char not-completed']")).isDisplayed());
+
+        sleepInSecond(2);
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("#@");
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.lowercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.uppercase-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.number-char.not-completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li.special-char.completed")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("li[class='8-char not-completed']")).isDisplayed());
+
+        sleepInSecond(2);
+        passwordTextBox.clear();
+        passwordTextBox.sendKeys("Quynh12345@");
+        Assert.assertFalse(driver.findElement(By.cssSelector("li.lowercase-char.completed")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.cssSelector("li.uppercase-char.completed")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.cssSelector("li.number-char.completed")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.cssSelector("li.special-char.completed")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.cssSelector("li[class='8-char completed']")).isDisplayed());
 
     }
 
