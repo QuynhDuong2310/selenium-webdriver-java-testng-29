@@ -107,6 +107,7 @@ public class Topic_07_WebElement_Commands_2_Exercise {
     @Test
     public void TC_04_MailChimp() {
         driver.get("https://login.mailchimp.com/signup/");
+
         WebElement passwordTextBox = driver.findElement(By.id("new_password"));
         passwordTextBox.click();
         passwordTextBox.sendKeys("123");
@@ -151,7 +152,6 @@ public class Topic_07_WebElement_Commands_2_Exercise {
         Assert.assertFalse(driver.findElement(By.cssSelector("li.number-char.completed")).isDisplayed());
         Assert.assertFalse(driver.findElement(By.cssSelector("li.special-char.completed")).isDisplayed());
         Assert.assertFalse(driver.findElement(By.cssSelector("li[class='8-char completed']")).isDisplayed());
-
     }
 
 
