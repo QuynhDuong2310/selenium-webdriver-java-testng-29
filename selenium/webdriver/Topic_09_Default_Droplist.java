@@ -26,22 +26,22 @@ public class Topic_09_Default_Droplist {
 
     @BeforeClass
     public void beforeClass() {
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.manage().window().maximize();
-        driver.get("https://demo.nopcommerce.com/login?returnUrl=%2Fregister");
+        driver.get("https://demo.nopcommerce.com/");
 
     }
 
     @Test
     public void TC_01_Register() {
-        driver.findElement(By.className(".ico-register")).click();
+        driver.findElement(By.cssSelector(".ico-register")).click();
         driver.findElement(By.id("FirstName")).sendKeys(firstName);
         driver.findElement(By.id("LastName")).sendKeys(lastName);
 
         Select dayOfBirth = new Select(driver.findElement(By.name("DateOfBirthDay")));
         dayOfBirth.selectByVisibleText(day);
-        Assert.assertEquals(dayOfBirth.getAllSelectedOptions().size(),32);
+        Assert.assertEquals(dayOfBirth.getOptions().size(),32);
 
 
         Select monthOfBirth = new Select(driver.findElement(By.name("DateOfBirthMonth")));
@@ -52,10 +52,10 @@ public class Topic_09_Default_Droplist {
 
 
         driver.findElement(By.id("Email")).sendKeys(emailAddress);
-        driver.findElement(By.id("Password")).sendKeys(password);
-        driver.findElement(By.id("ConfirmPassword")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@id='Password']")).sendKeys(password);
+        driver.findElement(By.xpath("//input[@id='ConfirmPassword']")).sendKeys(password);
         driver.findElement(By.id("register-button")).click();
-        sleepInSecond(2);
+        sleepInSecond(10);
 
         Assert.assertEquals(driver.findElement(By.cssSelector("div.page-body>.result")).getText(), "Your registration completed");
 
