@@ -1,4 +1,4 @@
-package webdriver;
+package Exercise;
 
 
 import org.openqa.selenium.*;

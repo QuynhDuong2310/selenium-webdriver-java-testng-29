@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Topic_08_Textbox_TextArea {
-    WebDriver driver;
+    WebDriver driver = new FirefoxDriver();
 
 
     @BeforeClass
