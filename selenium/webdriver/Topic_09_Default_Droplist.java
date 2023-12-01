@@ -3,9 +3,7 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -13,14 +11,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 
 public class Topic_09_Default_Droplist {
     WebDriver driver;
-    String firstName = "Quynh", lastName = "Duong", emailAddress = getEmailAddressRandom(), password ="123456";
+    String firstName = "Quynh", lastName = "Duong", emailAddress = getEmailAddressRandom(), password = "123456";
     String day = "23", month = "November", year = "2000";
 
 
@@ -41,7 +37,7 @@ public class Topic_09_Default_Droplist {
 
         Select dayOfBirth = new Select(driver.findElement(By.name("DateOfBirthDay")));
         dayOfBirth.selectByVisibleText(day);
-        Assert.assertEquals(dayOfBirth.getOptions().size(),32);
+        Assert.assertEquals(dayOfBirth.getOptions().size(), 32);
 
 
         Select monthOfBirth = new Select(driver.findElement(By.name("DateOfBirthMonth")));
@@ -75,12 +71,12 @@ public class Topic_09_Default_Droplist {
         driver.findElement(By.className("ico-account")).click();
         sleepInSecond(2);
 
-        Assert.assertEquals(driver.findElement(By.id("FirstName")).getAttribute("value"),firstName);
-        Assert.assertEquals(driver.findElement(By.id("LastName")).getAttribute("value"),lastName);
-        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"))).getFirstSelectedOption().getText(),day);
-        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"))).getFirstSelectedOption().getText(),month);
-        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"))).getFirstSelectedOption().getText(),year);
-        Assert.assertEquals(driver.findElement(By.id("Email")).getAttribute("value"),emailAddress);
+        Assert.assertEquals(driver.findElement(By.id("FirstName")).getAttribute("value"), firstName);
+        Assert.assertEquals(driver.findElement(By.id("LastName")).getAttribute("value"), lastName);
+        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"))).getFirstSelectedOption().getText(), day);
+        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"))).getFirstSelectedOption().getText(), month);
+        Assert.assertEquals(new Select(driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"))).getFirstSelectedOption().getText(), year);
+        Assert.assertEquals(driver.findElement(By.id("Email")).getAttribute("value"), emailAddress);
 
 
     }
